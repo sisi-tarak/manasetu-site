@@ -25,14 +25,14 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "worker-2",
       question: "How does the worker rewards program work?",
-      answer: `Complete tasks to unlock rewards: 25 tasks = free WE-branded t-shirt, 50 tasks = free WE hoodie, 100 tasks = verified badge + choice of ₹500 bonus + internship (students) or ₹1,000 bonus (workers). Rewards improve your visibility and help you get more task offers.`,
+      answer: `Complete tasks to unlock rewards: 25 tasks = free WE-branded t-shirt, 50 tasks = free WE hoodie, 100 tasks = verified badge. Accept an internship opportunity and earn 1,000 bonus credits; decline and still receive a standard 500 credits bonus. Rewards improve your visibility and help you get more task offers.`,
       audience: ["worker"],
       category: "rewards",
     },
     {
       id: "worker-3",
       question: "How do credits and referral bonuses work?",
-      answer: `Earn credits by completing tasks and referring others. Referrers earn ₹100 when their referee completes their first task. 100 credits = ₹1 (for workers, can be used for discounts or cashed to wallet). Credits can be redeemed for discounts, cash in wallet, or special offers.`,
+      answer: `Earn credits by completing tasks and referring others. Referrers earn ₹100 when their referee completes their first task. 100 credits = ₹1. Workers can top up their wallet from as low as ₹50 (5,000 credits). Credits can be redeemed for discounts, cash in wallet, or special offers. Credits redemption is available from V1.`,
       audience: ["worker"],
       category: "credits",
     },
@@ -53,7 +53,7 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "worker-6",
       question: "What types of tasks are available?",
-      answer: `We offer diverse tasks including home/garden services, delivery, groceries, cleaning, shopping, pharmacy, home essentials, data entry, content writing, and more. Tasks are categorized by skill level, duration, and payment. Filter by location, remote options, and your expertise.`,
+      answer: `We launched V1 with 11 core categories: Groceries & Vegetables, Fruits & Vegetables (Premium), Photography Services, Videography Services, Influencer Marketing, Editing Services, Web Development, App Development, Assignment Writing, Resume & CV Preparation, and Graphic Design. We intentionally cover both everyday errands plus digital and professional services. In V2, we will add more B2B and professional services.`,
       audience: ["worker"],
       category: "tasks",
     },
@@ -62,28 +62,28 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "business-1",
       question: "How do subscription plans work?",
-      answer: `Choose from three plans: Starter (₹299/month, ₹2,500 limit), Growth (₹599/month, ₹5,000 limit), or Professional (₹799/month, ₹9,000 limit). Post tasks up to your monthly limit with zero commission. Unused limits carry over up to 3 months. After exceeding your limit, pay 6% commission per task. Non-subscribers pay 6% commission on all tasks.`,
+      answer: `Choose from three plans: Starter (₹199/month, ₹3,000 limit), Growth (₹399/month, ₹6,000 limit), or Professional (₹599/month, ₹9,000 limit). Post tasks up to your monthly limit with zero commission. Unused limits carry over up to 3 months. If your total task value exceeds your plan limit, only the extra amount is charged a 6% platform fee. Non-subscribers pay 6% platform fee on all tasks. Upgrades apply instantly with prorated charges; downgrades take effect from your next billing cycle.`,
       audience: ["business"],
       category: "pricing",
     },
     {
       id: "business-2",
       question: "How are delivery fees calculated?",
-      answer: `Delivery fees are calculated dynamically based on distance AND proportional to actual vs estimated grocery cost. For example: 1km = ₹X, 3km = ₹Y, 5km = ₹Z, 10km = ₹W (varies by grocery cost). If the final bill is less than the estimate, the delivery fee is refunded proportionally.`,
+      answer: `Delivery fees start from fixed base rates by distance: 0–1 km = ₹20, 1–3 km = ₹30, 3–5 km = ₹40, 5–10 km = ₹55, 10+ km = ₹75. Final fee = Base Fee × (Actual Cost / Estimated Cost), with a safety range of 80–120% of the base fee. If the actual bill is lower, your delivery fee is reduced but never below 80% of base. Any overage is refunded proportionally.`,
       audience: ["business"],
       category: "fees",
     },
     {
       id: "business-3",
       question: "How does AI invoice generation work?",
-      answer: `Our AI generates upfront estimated price invoices based on real-time online price data. We add a buffer (12% for tier-2 cities, 18% for metros) to account for price variations. If the actual bill is less than the estimate, the unused buffer is automatically refunded to you. This ensures transparency and fairness.`,
+      answer: `Our AI generates upfront estimated price invoices based on real-time online price data. We apply a smart location-based buffer: +20% in metro cities (Bangalore, Hyderabad, Chennai, Delhi, Mumbai), +15% in major Tier-2 cities (Pune, Jaipur, Lucknow, etc.), and +12% in Tirupati and similar Tier-2 locations. Metro cities have higher buffers due to price volatility and stock availability issues. If the actual bill is less than the estimate, the unused buffer is automatically refunded.`,
       audience: ["business"],
       category: "invoice",
     },
     {
       id: "business-4",
       question: "How does escrow and refunds work?",
-      answer: `Payments are locked in escrow when you approve the AI-generated invoice. When the worker completes the task and uploads the receipt, the system compares the actual bill vs the estimate. If the actual bill is less, you automatically get a refund for the difference plus proportional delivery fee adjustment. Funds are released to the worker only after your approval.`,
+      answer: `Payments are locked in escrow when you approve the AI-generated invoice. For each task in V1, you select a single store to simplify verification. When the worker completes the task and uploads the receipt, the system compares actual vs estimated bill. Buffer and delivery fee are recalculated using our formula, and any overage is refunded. Escrow is released within about 2 hours after status COMPLETED, once delivery is confirmed, receipt verified, and no dispute is raised.`,
       audience: ["business"],
       category: "payment",
     },
@@ -98,7 +98,7 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "business-6",
       question: "How do subscription limits and carry-over work?",
-      answer: `Your monthly limit (₹2,500, ₹5,000, or ₹9,000) resets each month. Unused limit carries over to the next month, up to a maximum of 3 months. For example, if you have ₹1,000 unused in month 1, it carries to month 2. If you don't use it in month 2, it carries to month 3. After 3 months, unused limits expire.`,
+      answer: `Your monthly limit (₹3,000, ₹6,000, or ₹9,000) resets each month. Unused limit carries over to the next month, up to a maximum of 3 months. For example, if you have ₹1,000 unused in month 1, it carries to month 2. After 3 months, unused limits expire. If tasks exceed the monthly limit, a 6% platform fee is applied only on the extra amount.`,
       audience: ["business"],
       category: "pricing",
     },
@@ -112,14 +112,14 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "business-8",
       question: "How do I get a verified badge?",
-      answer: `Businesses subscribed to Growth (₹599) or Professional (₹799) plans are eligible for verified badges. Verified businesses are shown first in worker listings, get higher matching priority, and build more trust with workers.`,
+      answer: `Businesses subscribed to Growth (₹399) or Professional (₹599) plans are eligible for verified badges. Verified businesses are shown first in worker listings, get higher matching priority, and build more trust with workers.`,
       audience: ["business"],
       category: "verification",
     },
     {
       id: "business-9",
       question: "Who pays commission - me or the worker?",
-      answer: `Only task posters (businesses) pay commission. Workers never pay commission. If you're a subscriber, you pay zero commission within your monthly limit, then 6% after exceeding it. Non-subscribers pay 6% commission on all tasks.`,
+      answer: `Only task posters (businesses) pay platform fees. Workers never pay commission. If you're a subscriber, you pay zero commission within your monthly limit, then 6% platform fee after exceeding it. Non-subscribers pay 6% platform fee on all tasks.`,
       audience: ["business"],
       category: "pricing",
     },
@@ -151,28 +151,28 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "general-1",
       question: "How are delivery fees calculated and refunded?",
-      answer: `Delivery fees are calculated by distance and proportional to grocery cost. Fee structure varies: 1km, 3km, 5km, 10km have different base rates that scale with grocery cost. If the final bill is less than estimated, the delivery fee is refunded proportionally. For example, if the bill is 20% less, you get 20% of the delivery fee refunded.`,
+      answer: `Delivery fees have fixed base rates by distance: 0–1 km = ₹20, 1–3 km = ₹30, 3–5 km = ₹40, 5–10 km = ₹55, 10+ km = ₹75. Final fee = Base Fee × (Actual Cost / Estimated Cost), with floor at 80% and ceiling at 120% of base. If the bill is 20% less than estimated, you get proportional refund on delivery fee. Buffer and delivery fees are recalculated; any overage refunded to poster, rest paid to worker via instant UPI.`,
       audience: ["worker", "business"],
       category: "fees",
     },
     {
       id: "general-2",
       question: "How does the escrow system protect me?",
-      answer: `Payments are locked in escrow when the business approves the invoice. The worker can't access funds until task completion and business approval. If there's a dispute, our team mediates. If the actual bill is less than estimated, automatic refunds are processed. This protects both parties and ensures fair transactions.`,
+      answer: `Payments are locked in escrow when the business approves the invoice. In V1, posters select a single store per task for transparent distance, delivery fee, and receipt verification. Escrow is released within about 2 hours after status COMPLETED, once delivery is confirmed, receipt verified, and no dispute raised. If there's a dispute, our team mediates. Buffer and delivery fees are recalculated and overage refunded automatically.`,
       audience: ["worker", "business"],
       category: "payment",
     },
     {
       id: "general-3",
       question: "What task categories are available?",
-      answer: `We offer comprehensive task categories: Home/garden, Delivery, Groceries, Cleaning, Shopping, Pharmacy, Home essentials, Data entry, Content writing, Graphic design, Social media management, Research, Translation, Tutoring, and more. Categories are expanding based on user demand.`,
+      answer: `We launched V1 with 11 core categories: Groceries & Vegetables, Fruits & Vegetables (Premium), Photography Services, Videography Services, Influencer Marketing, Editing Services, Web Development, App Development, Assignment Writing, Resume & CV Preparation, and Graphic Design. We intentionally avoid focusing only on groceries due to market saturation. In V2, we will add more B2B and professional services such as Project Research Support and Medical Consulting. For digital tasks like development and design, we use in-app file sharing with 24–48 hour review periods.`,
       audience: ["worker", "business"],
       category: "tasks",
     },
     {
       id: "general-4",
       question: "How do credits work for both posters and workers?",
-      answer: `Both posters and workers earn credits by using the platform. Workers: 100 credits = ₹1 (can be cashed to wallet or used for discounts). Posters: Credits can be redeemed for discounts on subscription or task posting. Referral bonuses: Only the referrer earns ₹100 when the referee completes their first task (workers) or posts their first task (posters).`,
+      answer: `Both posters and workers earn credits by using the platform. Workers: 100 credits = ₹1, can top up from ₹50 (5,000 credits), redeemable for rewards, bonuses, offers, or cash to wallet. Posters: Credits can be used for up to 50% subscription discount or for commission reduction on overage amounts. Referral bonuses: Referrer earns ₹100 when referee completes first task (workers) or posts first task (posters). Credits redemption is available from V1.`,
       audience: ["worker", "business"],
       category: "credits",
     },
@@ -221,23 +221,6 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-60 h-60 bg-accent/5 rounded-full blur-3xl" />
-
-        {/* Question marks floating */}
-        <div className="absolute top-32 right-32 text-6xl text-primary/5 font-heading-bold animate-bounce hidden sm:block">
-          ?
-        </div>
-        <div
-          className="absolute bottom-40 left-16 text-4xl text-accent/5 font-heading-bold animate-bounce hidden sm:block"
-          style={{ animationDelay: "1s" }}
-        >
-          ?
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">

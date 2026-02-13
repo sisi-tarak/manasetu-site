@@ -91,7 +91,7 @@ const LandingPage = () => {
       case "business":
         return {
           title: `${baseTitle} | Flexible Subscription Plans - AI Invoicing`,
-          description: `Choose subscription plans (₹299, ₹599, ₹799/month) with zero commission up to your limit. AI-powered invoicing, dynamic delivery fees, automatic refunds. Post tasks with complete transparency.`,
+          description: `Choose subscription plans (₹199, ₹399, ₹599/month) with zero commission up to your limit. AI-powered invoicing, dynamic delivery fees, automatic refunds. Post tasks with complete transparency.`,
           keywords:
             "subscription plans, task posting, AI invoice, dynamic delivery fees, escrow protection, verified workers, business solutions, flexible pricing, automatic refunds",
         };
@@ -244,8 +244,8 @@ const LandingPage = () => {
             {selectedAudience === "worker"
               ? "Earn"
               : selectedAudience === "business"
-              ? "Post"
-              : "Join"}
+                ? "Post"
+                : "Join"}
           </span>
         </button>
       </div>

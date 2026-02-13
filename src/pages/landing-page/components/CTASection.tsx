@@ -47,8 +47,8 @@ const CTASection = ({ selectedAudience }: CTASectionProps) => {
           selectedAudience === "worker"
             ? "Worker/Student"
             : selectedAudience === "business"
-            ? "Business"
-            : "Investor",
+              ? "Business"
+              : "Investor",
         user_email: email,
         user_phone: phone,
         submission_date: new Date().toLocaleString("en-IN", {
@@ -83,8 +83,8 @@ const CTASection = ({ selectedAudience }: CTASectionProps) => {
       console.error("EmailJS Error:", err);
       setError(
         err.text ||
-          err.message ||
-          "Failed to submit form. Please try again later."
+        err.message ||
+        "Failed to submit form. Please try again later."
       );
 
       // Still show success message to user (graceful degradation)
@@ -126,7 +126,7 @@ const CTASection = ({ selectedAudience }: CTASectionProps) => {
         "Post tasks with zero commission up to your limit. AI-powered invoicing, dynamic delivery fees, and automatic refunds.",
       primaryCTA: "View Pricing Plans",
       secondaryCTA: "Schedule Demo",
-      urgency: "Flexible plans starting at ₹299/month",
+      urgency: "Flexible plans starting at ₹199/month",
       benefits: [
         "Flexible subscription plans",
         "AI invoice generation",
@@ -165,117 +165,6 @@ const CTASection = ({ selectedAudience }: CTASectionProps) => {
       id="get-started"
       className="py-20 bg-gradient-to-br from-primary via-primary/90 to-secondary relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-20 right-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        />
-
-        {/* Network Pattern */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-10"
-          viewBox="0 0 1000 1000"
-        >
-          <defs>
-            <linearGradient
-              id="ctaNetworkGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="white" />
-              <stop offset="100%" stopColor="rgba(255,255,255,0.5)" />
-            </linearGradient>
-          </defs>
-          <circle cx="200" cy="200" r="3" fill="url(#ctaNetworkGradient)">
-            <animate
-              attributeName="opacity"
-              values="0.3;1;0.3"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle cx="400" cy="150" r="2" fill="url(#ctaNetworkGradient)">
-            <animate
-              attributeName="opacity"
-              values="0.5;1;0.5"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle cx="600" cy="300" r="4" fill="url(#ctaNetworkGradient)">
-            <animate
-              attributeName="opacity"
-              values="0.2;0.8;0.2"
-              dur="2.5s"
-              repeatCount="indefinite"
-            />
-          </circle>
-          <circle cx="800" cy="250" r="3" fill="url(#ctaNetworkGradient)">
-            <animate
-              attributeName="opacity"
-              values="0.4;1;0.4"
-              dur="1.8s"
-              repeatCount="indefinite"
-            />
-          </circle>
-
-          {/* Connecting Lines */}
-          <line
-            x1="200"
-            y1="200"
-            x2="400"
-            y2="150"
-            stroke="url(#ctaNetworkGradient)"
-            strokeWidth="1"
-            opacity="0.3"
-          >
-            <animate
-              attributeName="opacity"
-              values="0.1;0.5;0.1"
-              dur="4s"
-              repeatCount="indefinite"
-            />
-          </line>
-          <line
-            x1="400"
-            y1="150"
-            x2="600"
-            y2="300"
-            stroke="url(#ctaNetworkGradient)"
-            strokeWidth="1"
-            opacity="0.3"
-          >
-            <animate
-              attributeName="opacity"
-              values="0.2;0.6;0.2"
-              dur="3.5s"
-              repeatCount="indefinite"
-            />
-          </line>
-          <line
-            x1="600"
-            y1="300"
-            x2="800"
-            y2="250"
-            stroke="url(#ctaNetworkGradient)"
-            strokeWidth="1"
-            opacity="0.3"
-          >
-            <animate
-              attributeName="opacity"
-              values="0.1;0.4;0.1"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-          </line>
-        </svg>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

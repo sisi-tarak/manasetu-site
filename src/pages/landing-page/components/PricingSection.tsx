@@ -39,14 +39,14 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
         id: "business-starter",
         audience: "business",
         name: "Starter",
-        price: "₹299",
+        price: "₹199",
         period: "/month",
         description: "Perfect for occasional task posting",
         features: [
-          "₹2,500 task limit per month",
+          "₹3,000 task limit per month",
           "Unused limit carries over (up to 3 months)",
           "Zero commission within limit",
-          "6% commission after limit exceeded",
+          "6% platform fee after limit exceeded",
           "AI invoice generation",
           "Dynamic delivery fee calculation",
           "Escrow protection",
@@ -59,14 +59,14 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
         id: "business-growth",
         audience: "business",
         name: "Growth",
-        price: "₹599",
+        price: "₹399",
         period: "/month",
         description: "Ideal for regular task posting",
         features: [
-          "₹5,000 task limit per month",
+          "₹6,000 task limit per month",
           "Unused limit carries over (up to 3 months)",
           "Zero commission within limit",
-          "6% commission after limit exceeded",
+          "6% platform fee after limit exceeded",
           "Verified badge eligibility",
           "AI invoice generation",
           "Dynamic delivery fee calculation",
@@ -82,14 +82,14 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
         id: "business-pro",
         audience: "business",
         name: "Professional",
-        price: "₹799",
+        price: "₹599",
         period: "/month",
         description: "Best for high-volume task posting",
         features: [
           "₹9,000 task limit per month",
           "Unused limit carries over (up to 3 months)",
           "Zero commission within limit",
-          "6% commission after limit exceeded",
+          "6% platform fee after limit exceeded",
           "Verified badge eligibility",
           "AI invoice generation",
           "Dynamic delivery fee calculation",
@@ -153,23 +153,6 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
       id="pricing"
       className="py-20 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl" />
-
-        {/* Price symbols floating */}
-        <div className="absolute top-32 right-32 text-4xl text-primary/10 font-heading-bold animate-bounce hidden sm:block">
-          ₹
-        </div>
-        <div
-          className="absolute bottom-40 left-16 text-3xl text-accent/10 font-heading-bold animate-bounce hidden sm:block"
-          style={{ animationDelay: "1s" }}
-        >
-          %
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -213,13 +196,12 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
 
         {/* Pricing Cards */}
         <div
-          className={`grid gap-8 max-w-6xl mx-auto ${
-            currentTiers.length === 2
+          className={`grid gap-8 max-w-6xl mx-auto ${currentTiers.length === 2
               ? "grid-cols-1 md:grid-cols-2"
               : currentTiers.length === 3
-              ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-              : "grid-cols-1"
-          }`}
+                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1"
+            }`}
         >
           {currentTiers.map((tier, index) => (
             <motion.div
@@ -232,11 +214,10 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                 scale: 1.02,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
               }}
-              className={`relative bg-card border-2 rounded-3xl p-8 transition-card ${
-                tier.highlighted
+              className={`relative bg-card border-2 rounded-3xl p-8 transition-card ${tier.highlighted
                   ? "border-primary shadow-card-hover ring-4 ring-primary/10"
                   : "border-border hover:border-accent"
-              }`}
+                }`}
             >
               {/* Badge */}
               {tier.badge && (
@@ -258,9 +239,8 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                 <div className="mb-6">
                   <div className="flex items-baseline justify-center space-x-2">
                     <span
-                      className={`text-4xl md:text-5xl font-heading-extra-bold ${
-                        tier.highlighted ? "text-primary" : "text-foreground"
-                      }`}
+                      className={`text-4xl md:text-5xl font-heading-extra-bold ${tier.highlighted ? "text-primary" : "text-foreground"
+                        }`}
                     >
                       {tier.price}
                     </span>
@@ -277,8 +257,8 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                           Monthly Task Limit
                         </div>
                         <div className="text-lg font-heading-bold text-primary">
-                          {tier.id === "business-starter" && "₹2,500"}
-                          {tier.id === "business-growth" && "₹5,000"}
+                          {tier.id === "business-starter" && "₹3,000"}
+                          {tier.id === "business-growth" && "₹6,000"}
                           {tier.id === "business-pro" && "₹9,000"}
                         </div>
                         <div className="text-xs text-success mt-1">
@@ -311,9 +291,8 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                       className="flex items-start space-x-3"
                     >
                       <div
-                        className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          tier.highlighted ? "bg-primary/10" : "bg-success/10"
-                        }`}
+                        className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${tier.highlighted ? "bg-primary/10" : "bg-success/10"
+                          }`}
                       >
                         <Icon
                           name="Check"
@@ -464,7 +443,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                   💡 How it works:
                 </div>
                 <ul className="text-sm text-text-secondary space-y-1 ml-4">
-                  <li>• Subscribe to a plan (₹299, ₹599, or ₹799/month)</li>
+                  <li>• Subscribe to a plan (₹199, ₹399, or ₹599/month)</li>
                   <li>
                     • Post tasks up to your monthly limit with zero commission
                   </li>
@@ -472,9 +451,9 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                     • Unused limit carries over to next month (up to 3 months)
                   </li>
                   <li>
-                    • After exceeding limit, pay only 6% commission per task
+                    • After exceeding limit, pay only 6% platform fee per task
                   </li>
-                  <li>• Non-subscribers pay 6% commission on all tasks</li>
+                  <li>• Non-subscribers pay 6% platform fee on all tasks</li>
                 </ul>
               </div>
             )}

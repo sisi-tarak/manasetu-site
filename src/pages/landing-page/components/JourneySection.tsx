@@ -75,7 +75,7 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
         audience: "business",
         details: [
           "Create business account",
-          "Choose subscription plan (₹299, ₹599, or ₹799/month)",
+          "Choose subscription plan (₹199, ₹399, or ₹599/month)",
           "Verify business details",
           "Set up payment methods",
         ],
@@ -180,12 +180,6 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
 
   return (
     <section className="py-20 bg-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -257,11 +251,10 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
                   >
                     {/* Step Circle */}
                     <div
-                      className={`w-16 h-16 rounded-full border-4 flex items-center mt-3 mb-5 justify-center transition-all duration-300 ${
-                        index <= activeStep
-                          ? "bg-primary border-primary text-white shadow-lg scale-110"
-                          : "bg-card border-border text-text-secondary group-hover:border-accent group-hover:scale-105"
-                      }`}
+                      className={`w-16 h-16 rounded-full border-4 flex items-center mt-3 mb-5 justify-center transition-all duration-300 ${index <= activeStep
+                        ? "bg-primary border-primary text-white shadow-lg scale-110"
+                        : "bg-card border-border text-text-secondary group-hover:border-accent group-hover:scale-105"
+                        }`}
                     >
                       <Icon name={step.icon} size={24} />
                     </div>
@@ -269,11 +262,10 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
                     {/* Step Label */}
                     <div className="mt-4 text-center max-w-32">
                       <h4
-                        className={`font-heading-bold text-sm mb-1 ${
-                          index <= activeStep
-                            ? "text-primary"
-                            : "text-foreground"
-                        }`}
+                        className={`font-heading-bold text-sm mb-1 ${index <= activeStep
+                          ? "text-primary"
+                          : "text-foreground"
+                          }`}
                       >
                         {step.title}
                       </h4>
@@ -296,19 +288,17 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`flex items-start space-x-4 p-4 rounded-2xl transition-all cursor-pointer ${
-                  index === activeStep
-                    ? "bg-primary/10 border-2 border-primary"
-                    : "bg-card border border-border hover:bg-muted"
-                }`}
+                className={`flex items-start space-x-4 p-4 rounded-2xl transition-all cursor-pointer ${index === activeStep
+                  ? "bg-primary/10 border-2 border-primary"
+                  : "bg-card border border-border hover:bg-muted"
+                  }`}
                 onClick={() => setActiveStep(index)}
               >
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    index <= activeStep
-                      ? "bg-primary text-white"
-                      : "bg-muted text-text-secondary"
-                  }`}
+                  className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${index <= activeStep
+                    ? "bg-primary text-white"
+                    : "bg-muted text-text-secondary"
+                    }`}
                 >
                   <Icon name={step.icon} size={20} />
                 </div>
@@ -403,11 +393,10 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
                       <button
                         key={index}
                         onClick={() => setActiveStep(index)}
-                        className={`w-2 h-2 rounded-full transition-smooth ${
-                          index === activeStep
-                            ? "bg-primary"
-                            : "bg-border hover:bg-accent"
-                        }`}
+                        className={`w-2 h-2 rounded-full transition-smooth ${index === activeStep
+                          ? "bg-primary"
+                          : "bg-border hover:bg-accent"
+                          }`}
                       />
                     ))}
                   </div>

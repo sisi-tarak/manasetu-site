@@ -126,20 +126,6 @@ const TestimonialsSection = ({
       id="success-stories"
       className="py-20 bg-gradient-to-br from-accent/5 via-background to-primary/5 relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-60 h-60 bg-accent/5 rounded-full blur-3xl" />
-
-        {/* Quote Marks */}
-        <div className="absolute top-10 left-10 text-6xl text-primary/10 font-serif">
-          "
-        </div>
-        <div className="absolute bottom-10 right-10 text-6xl text-accent/10 font-serif rotate-180">
-          "
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -208,11 +194,10 @@ const TestimonialsSection = ({
                         key={i}
                         name="Star"
                         size={24}
-                        className={`${
-                          i < currentTestimonialData.rating
+                        className={`${i < currentTestimonialData.rating
                             ? "text-warning fill-current"
                             : "text-border"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>
@@ -306,11 +291,10 @@ const TestimonialsSection = ({
                     setCurrentTestimonial(index);
                     setIsAutoPlaying(false);
                   }}
-                  className={`w-3 h-3 rounded-full transition-smooth ${
-                    index === currentTestimonial
+                  className={`w-3 h-3 rounded-full transition-smooth ${index === currentTestimonial
                       ? "bg-primary scale-125"
                       : "bg-border hover:bg-accent"
-                  }`}
+                    }`}
                 />
               ))}
             </div>

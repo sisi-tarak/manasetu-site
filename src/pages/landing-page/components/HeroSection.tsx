@@ -41,14 +41,14 @@ const HeroSection = ({
       icon: "Building2",
       description: "Find verified talent",
       color: "text-secondary",
-      heroTitle: "Flexible Subscription Plans - Task Posting",
+      heroTitle: "Smart Subscription Plans for Task Posting",
       heroSubtitle:
-        "Choose a plan that fits your needs. Post tasks with zero commission up to your limit. AI-powered invoicing and dynamic delivery fees.",
+        "Workers earn 100% with zero commission. Businesses use smart subscription plans (₹199/₹399/₹599) with AI-powered cost estimation and escrow-protected tasks.",
       ctaText: "View Pricing Plans",
       benefits: [
-        "Flexible subscription plans",
-        "AI invoice generation",
-        "Escrow protection",
+        "Smart subscription plans",
+        "AI invoice & escrow protection",
+        "Dynamic delivery fees",
       ],
     },
     {
@@ -88,13 +88,13 @@ const HeroSection = ({
       audience: "business",
       title: "Verified Talent",
       subtitle: "Zero Hassle",
-      highlight: "Flexible Subscription Plans",
+      highlight: "Smart Subscription Plans",
       icon: "Shield",
       gradient: "from-secondary to-secondary/70",
       features: [
-        "AI invoice generation",
+        "AI invoice & escrow protection",
         "Dynamic delivery fees",
-        "Escrow protection",
+        "3-tier location-based buffers",
       ],
     },
     {
@@ -121,8 +121,8 @@ const HeroSection = ({
     currentAudience.id === "worker"
       ? "Earn Rewards, Badges & Bonuses"
       : currentAudience.id === "business"
-      ? "AI-Powered Invoicing & Dynamic Fees"
-      : "Join Our Growing Platform",
+        ? "AI-Powered Invoicing & Dynamic Fees"
+        : "Join Our Growing Platform",
   ];
 
   useEffect(() => {
@@ -138,49 +138,6 @@ const HeroSection = ({
       id="for-you"
       className="relative min-h-screen bg-gradient-to-br from-background via-muted/30 to-accent/10 overflow-hidden"
     >
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-pulse opacity-60" />
-        <div className="absolute top-40 right-20 w-3 h-3 bg-accent rounded-full animate-bounce opacity-40" />
-        <div className="absolute bottom-40 left-20 w-2 h-2 bg-secondary rounded-full animate-pulse opacity-50" />
-        <div className="absolute bottom-20 right-10 w-4 h-4 bg-success rounded-full animate-bounce opacity-30" />
-
-        {/* Network Flow Lines */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-10"
-          viewBox="0 0 1000 1000"
-        >
-          <defs>
-            <linearGradient
-              id="networkGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="var(--color-primary)" />
-              <stop offset="100%" stopColor="var(--color-accent)" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M100,200 Q300,100 500,200 T900,200"
-            stroke="url(#networkGradient)"
-            strokeWidth="2"
-            fill="none"
-            className="animate-pulse"
-          />
-
-          <path
-            d="M100,400 Q400,300 700,400 T900,400"
-            stroke="url(#networkGradient)"
-            strokeWidth="2"
-            fill="none"
-            className="animate-pulse"
-            style={{ animationDelay: "1s" }}
-          />
-        </svg>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
           {/* Left Content */}
@@ -325,11 +282,10 @@ const HeroSection = ({
                     rotateY: 5,
                     boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
                   }}
-                  className={`relative cursor-pointer transition-card ${
-                    selectedAudience === card.audience
-                      ? "ring-2 ring-primary shadow-card-hover"
-                      : "hover:shadow-card-hover"
-                  }`}
+                  className={`relative cursor-pointer transition-card ${selectedAudience === card.audience
+                    ? "ring-2 ring-primary shadow-card-hover"
+                    : "hover:shadow-card-hover"
+                    }`}
                   onClick={() => onAudienceChange(card.audience)}
                 >
                   <div
@@ -406,11 +362,10 @@ const HeroSection = ({
                   <button
                     key={audience.id}
                     onClick={() => onAudienceChange(audience.id)}
-                    className={`w-3 h-3 rounded-full transition-smooth ${
-                      selectedAudience === audience.id
-                        ? "bg-primary"
-                        : "bg-border hover:bg-accent"
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-smooth ${selectedAudience === audience.id
+                      ? "bg-primary"
+                      : "bg-border hover:bg-accent"
+                      }`}
                   />
                 ))}
               </div>
@@ -437,7 +392,7 @@ const HeroSection = ({
           </motion.div>
         </div>
       </motion.div>
-    </section>
+    </section >
   );
 };
 

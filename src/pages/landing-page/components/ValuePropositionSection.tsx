@@ -49,7 +49,7 @@ const ValuePropositionSection = ({
       id: "ai-invoice",
       title: "AI-Powered Invoice Generation",
       description:
-        "AI generates upfront price estimates using real-time online data. Transparent buffer system (12% tier-2, 18% metro) with automatic refunds.",
+        "AI generates upfront price estimates using real-time online data. Transparent buffer system (12% Tier-2, 15% Major Cities, 20% Metro) with automatic refunds.",
       icon: "FileText",
       audience: ["business"],
     },
@@ -65,7 +65,7 @@ const ValuePropositionSection = ({
       id: "flexible-subscription",
       title: "Flexible Subscription Plans",
       description:
-        "Choose a plan that fits your needs (₹299, ₹599, or ₹799/month). Unused limits carry over up to 3 months. Zero commission within limit.",
+        "Choose a plan that fits your needs (₹199, ₹399, or ₹599/month). Unused limits carry over up to 3 months. Zero commission within limit.",
       icon: "CreditCard",
       audience: ["business"],
     },
@@ -112,35 +112,6 @@ const ValuePropositionSection = ({
 
   return (
     <section className="py-20 bg-gradient-to-r from-muted/50 to-accent/10 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
-
-        {/* Floating Icons */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-20 right-20 opacity-10"
-        >
-          <Icon name="Star" size={24} className="text-primary" />
-        </motion.div>
-
-        <motion.div
-          animate={{
-            y: [0, 15, 0],
-            rotate: [0, -5, 0],
-          }}
-          transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-32 left-16 opacity-10"
-        >
-          <Icon name="Heart" size={20} className="text-accent" />
-        </motion.div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <motion.div
@@ -226,11 +197,10 @@ const ValuePropositionSection = ({
                   <button
                     key={index}
                     onClick={() => setCurrentProposition(index)}
-                    className={`w-3 h-3 rounded-full transition-smooth ${
-                      index === currentProposition
+                    className={`w-3 h-3 rounded-full transition-smooth ${index === currentProposition
                         ? "bg-primary scale-125"
                         : "bg-border hover:bg-accent"
-                    }`}
+                      }`}
                   />
                 ))}
               </div>

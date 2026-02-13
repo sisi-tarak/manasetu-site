@@ -128,32 +128,6 @@ const MetricsSection = () => {
       ref={sectionRef}
       className="py-20 bg-gradient-to-r from-primary/5 via-background to-accent/5 relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-10 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        />
-
-        {/* Floating Numbers */}
-        <div className="absolute top-20 right-20 text-6xl font-heading-bold text-primary/5 animate-bounce hidden sm:block">
-          ₹
-        </div>
-        <div
-          className="absolute bottom-32 left-16 text-4xl font-heading-bold text-accent/5 animate-bounce hidden sm:block"
-          style={{ animationDelay: "0.5s" }}
-        >
-          %
-        </div>
-        <div
-          className="absolute top-1/2 left-1/4 text-5xl font-heading-bold text-secondary/5 animate-bounce hidden sm:block"
-          style={{ animationDelay: "1.5s" }}
-        >
-          ★
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -211,17 +185,16 @@ const MetricsSection = () => {
               <div className="relative z-10">
                 {/* Icon */}
                 <div
-                  className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 ${
-                    metric.color === "text-success"
+                  className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 ${metric.color === "text-success"
                       ? "bg-success/10"
                       : metric.color === "text-primary"
-                      ? "bg-primary/10"
-                      : metric.color === "text-warning"
-                      ? "bg-warning/10"
-                      : metric.color === "text-secondary"
-                      ? "bg-secondary/10"
-                      : "bg-accent/10"
-                  }`}
+                        ? "bg-primary/10"
+                        : metric.color === "text-warning"
+                          ? "bg-warning/10"
+                          : metric.color === "text-secondary"
+                            ? "bg-secondary/10"
+                            : "bg-accent/10"
+                    }`}
                 >
                   <Icon name={metric.icon} size={32} className={metric.color} />
                 </div>
@@ -256,12 +229,11 @@ const MetricsSection = () => {
                           <Icon
                             name="Star"
                             size={20}
-                            className={`${
-                              i <
-                              Math.floor((animatedValues[metric.id] || 0) / 10)
+                            className={`${i <
+                                Math.floor((animatedValues[metric.id] || 0) / 10)
                                 ? "text-warning fill-current"
                                 : "text-border"
-                            }`}
+                              }`}
                           />
                         </motion.div>
                       ))}

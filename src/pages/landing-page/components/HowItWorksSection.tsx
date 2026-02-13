@@ -17,7 +17,7 @@ const HowItWorksSection = () => {
       step: 1,
       title: "Sign Up & Verify",
       description:
-        "Create your account and verify with College ID/Aadhaar. Workers sign up for free. Businesses choose a subscription plan (₹299, ₹599, or ₹799/month).",
+        "Create your account and verify with College ID/Aadhaar. Workers sign up for free. Businesses choose a subscription plan (₹199, ₹399, or ₹599/month) with monthly task limits of ₹3,000, ₹6,000, and ₹9,000 respectively and 3-month carry-over.",
       icon: "UserPlus",
       color: "text-success",
     },
@@ -26,7 +26,7 @@ const HowItWorksSection = () => {
       step: 2,
       title: "Post Task & AI Invoice",
       description:
-        "Businesses post tasks with details. Our AI generates an upfront estimated invoice using real-time online price data with a buffer (12% tier-2, 18% metro). Dynamic delivery fee calculated by distance and grocery cost.",
+        "Businesses post tasks with details. Our AI generates an upfront estimated invoice using real-time online price data with a smart location-based buffer: +20% in metro cities (Bangalore, Hyderabad, Chennai, Delhi, Mumbai), +15% in major Tier-2 cities, and +12% in Tirupati and similar locations. Delivery fees start from ₹20 (0-1km) up to ₹75 (10+ km), dynamically adjusted within 80-120% of base.",
       icon: "FileText",
       color: "text-primary",
     },
@@ -35,7 +35,7 @@ const HowItWorksSection = () => {
       step: 3,
       title: "Approve & Escrow Lock",
       description:
-        "Business approves the AI-generated invoice. Payment is locked in secure escrow. Worker accepts and begins the task with milestone tracking.",
+        "Business approves the AI-generated invoice. Payment is locked in secure escrow. For each task, posters select a single store in V1, so distance, delivery fee, and receipt verification are simple and transparent. Worker accepts and begins the task with milestone tracking.",
       icon: "Lock",
       color: "text-secondary",
     },
@@ -44,7 +44,7 @@ const HowItWorksSection = () => {
       step: 4,
       title: "Complete & Report",
       description:
-        "Worker completes the task, uploads receipt, and reports completion. System compares actual bill vs estimated invoice. Unused buffer and delivery fee adjustments calculated automatically.",
+        "Worker completes the task, uploads receipt, and reports completion. System compares actual bill vs estimated invoice. Unused buffer and delivery fee adjustments calculated automatically using the formula: Final Delivery Fee = Base Fee × (Actual Cost / Estimated Cost).",
       icon: "CheckCircle",
       color: "text-warning",
     },
@@ -53,7 +53,7 @@ const HowItWorksSection = () => {
       step: 5,
       title: "Automatic Refund & Payment",
       description:
-        "If actual bill is less than estimate, automatic refund credited. Dynamic delivery fee refunded proportionally. Escrow releases payment to worker via instant UPI. Credits and rewards awarded.",
+        "If actual bill is less than estimate, automatic refund credited. Dynamic delivery fee refunded proportionally (floor 80%, ceiling 120% of base). Escrow is released within about 2 hours after completion once delivery is confirmed, receipt verified, and no dispute raised. Payment sent to worker via instant UPI.",
       icon: "Wallet",
       color: "text-success",
     },
@@ -79,67 +79,6 @@ const HowItWorksSection = () => {
       ref={sectionRef}
       className="py-20 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Animated Network Lines */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-5"
-          viewBox="0 0 1000 1000"
-        >
-          <defs>
-            <linearGradient
-              id="networkGradient2"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="var(--color-primary)" />
-              <stop offset="50%" stopColor="var(--color-accent)" />
-              <stop offset="100%" stopColor="var(--color-secondary)" />
-            </linearGradient>
-          </defs>
-          {timelineSteps.map((_, index) => (
-            <motion.path
-              key={index}
-              d={`M${200 + index * 150},100 Q${300 + index * 150},200 ${
-                400 + index * 150
-              },300 T${600 + index * 150},500`}
-              stroke="url(#networkGradient2)"
-              strokeWidth="2"
-              fill="none"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{
-                pathLength: activeStep >= index ? 1 : 0,
-                opacity: activeStep >= index ? 0.3 : 0.1,
-              }}
-              transition={{ duration: 1, delay: index * 0.2 }}
-            />
-          ))}
-        </svg>
-
-        {/* Floating Particles */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/20 rounded-full"
-            style={{
-              left: `${20 + i * 10}%`,
-              top: `${30 + i * 5}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.3,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -199,34 +138,29 @@ const HowItWorksSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className={`flex items-center ${
-                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  }`}
+                  className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                    }`}
                 >
                   {/* Content */}
                   <div
-                    className={`flex-1 ${
-                      index % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left"
-                    }`}
+                    className={`flex-1 ${index % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left"
+                      }`}
                   >
                     <div
-                      className={`inline-block bg-card border border-border rounded-2xl p-8 shadow-card-hover max-w-md ${
-                        activeStep >= index ? "ring-2 ring-primary/20" : ""
-                      }`}
+                      className={`inline-block bg-card border border-border rounded-2xl p-8 shadow-card-hover max-w-md ${activeStep >= index ? "ring-2 ring-primary/20" : ""
+                        }`}
                     >
                       <div
-                        className={`flex items-center space-x-3 mb-4 ${
-                          index % 2 === 0
-                            ? "flex-row-reverse space-x-reverse"
-                            : ""
-                        }`}
+                        className={`flex items-center space-x-3 mb-4 ${index % 2 === 0
+                          ? "flex-row-reverse space-x-reverse"
+                          : ""
+                          }`}
                       >
                         <div
-                          className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                            activeStep >= index
-                              ? "bg-gradient-to-br from-primary to-accent text-white"
-                              : "bg-muted text-text-secondary"
-                          }`}
+                          className={`w-12 h-12 rounded-xl flex items-center justify-center ${activeStep >= index
+                            ? "bg-gradient-to-br from-primary to-accent text-white"
+                            : "bg-muted text-text-secondary"
+                            }`}
                         >
                           <Icon name={step.icon} size={24} />
                         </div>
@@ -248,11 +182,10 @@ const HowItWorksSection = () => {
                   {/* Central Node */}
                   <div className="relative z-10">
                     <motion.div
-                      className={`w-6 h-6 rounded-full border-4 ${
-                        activeStep >= index
-                          ? "bg-primary border-primary shadow-lg"
-                          : "bg-background border-border"
-                      }`}
+                      className={`w-6 h-6 rounded-full border-4 ${activeStep >= index
+                        ? "bg-primary border-primary shadow-lg"
+                        : "bg-background border-border"
+                        }`}
                       animate={{
                         scale: activeStep >= index ? [1, 1.2, 1] : 1,
                       }}
@@ -280,19 +213,17 @@ const HowItWorksSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`flex items-start space-x-4 p-6 rounded-2xl transition-all ${
-                  activeStep >= index
-                    ? "bg-primary/5 border-2 border-primary/20"
-                    : "bg-card border border-border"
-                }`}
+                className={`flex items-start space-x-4 p-6 rounded-2xl transition-all ${activeStep >= index
+                  ? "bg-primary/5 border-2 border-primary/20"
+                  : "bg-card border border-border"
+                  }`}
               >
                 {/* Step Icon */}
                 <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 ${
-                    activeStep >= index
-                      ? "bg-gradient-to-br from-primary to-accent text-white shadow-lg"
-                      : "bg-muted text-text-secondary"
-                  }`}
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 ${activeStep >= index
+                    ? "bg-gradient-to-br from-primary to-accent text-white shadow-lg"
+                    : "bg-muted text-text-secondary"
+                    }`}
                 >
                   <Icon name={step.icon} size={24} />
                 </div>
@@ -304,9 +235,8 @@ const HowItWorksSection = () => {
                       Step {step.step}
                     </span>
                     <div
-                      className={`w-2 h-2 rounded-full ${
-                        activeStep >= index ? "bg-primary" : "bg-border"
-                      }`}
+                      className={`w-2 h-2 rounded-full ${activeStep >= index ? "bg-primary" : "bg-border"
+                        }`}
                     />
                   </div>
                   <h3 className="text-lg font-heading-bold text-foreground mb-2">
@@ -336,7 +266,7 @@ const HowItWorksSection = () => {
               AI Invoice Generation
             </h4>
             <p className="text-text-secondary text-sm">
-              AI generates upfront price estimates using real-time online data with transparent buffer calculations
+              AI generates upfront price estimates using real-time online data with location-based buffers: +20% metro, +15% Tier-2, +12% Tirupati
             </p>
           </motion.div>
 
@@ -354,7 +284,7 @@ const HowItWorksSection = () => {
               Dynamic Delivery Fees
             </h4>
             <p className="text-text-secondary text-sm">
-              Delivery fees calculated by distance and grocery cost, with automatic proportional refunds if bill is less
+              Base fees by distance (₹20-₹75) dynamically adjusted by actual vs estimated cost, with 80-120% safety range
             </p>
           </motion.div>
 
@@ -372,7 +302,7 @@ const HowItWorksSection = () => {
               Automatic Refunds
             </h4>
             <p className="text-text-secondary text-sm">
-              Escrow automatically refunds overpayments and adjusts delivery fees when actual bill is less than estimate
+              Escrow refunds overpayments within ~2 hours. Buffer and delivery fees recalculated; rest paid to worker via instant UPI
             </p>
           </motion.div>
         </div>
