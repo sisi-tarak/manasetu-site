@@ -25,7 +25,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
           "College ID verification",
           "Access to all tasks",
           "Earn credits & rewards",
-          "Referral bonuses (₹100 per referral)",
+          "Referral bonuses (1000 credits per referral)",
           "Worker rewards program",
           "Mobile app access",
         ],
