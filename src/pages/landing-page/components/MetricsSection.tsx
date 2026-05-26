@@ -5,7 +5,7 @@ import { MetricData } from "../types";
 
 const MetricsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, threshold: 0.3 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
   const [animatedValues, setAnimatedValues] = useState<Record<string, number>>(
     {}
   );
@@ -123,6 +123,20 @@ const MetricsSection = () => {
     }
   }, [isInView]);
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+  };
+  const metricCardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+    },
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -165,17 +179,20 @@ const MetricsSection = () => {
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {metrics.map((metric, index) => (
             <motion.div
               key={metric.id}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              variants={metricCardVariants}
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                boxShadow: "0 20px 40px rgba(240,180,41,0.18)",
               }}
               className="bg-card border border-border rounded-3xl p-8 text-center hover:shadow-card-hover transition-card group relative overflow-hidden"
             >
@@ -270,7 +287,7 @@ const MetricsSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Projection Notice */}
         <motion.div

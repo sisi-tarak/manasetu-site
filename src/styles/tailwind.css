@@ -11,7 +11,7 @@
     --color-foreground: #1a1a1a; /* gray-900 */
     --color-border: #e5e7eb; /* gray-200 */
     --color-input: #ffffff; /* white */
-    --color-ring: #ff8c42; /* orange-500 */
+    --color-ring: #F0B429; /* brand amber-gold */
 
     /* Card Colors */
     --color-card: #ffffff; /* white */
@@ -26,7 +26,7 @@
     --color-muted-foreground: #6b7280; /* gray-500 */
 
     /* Primary Colors */
-    --color-primary: #ff8c42; /* orange-500 */
+    --color-primary: #F0B429; /* brand amber-gold */
     --color-primary-foreground: #ffffff; /* white */
 
     /* Secondary Colors */
@@ -38,7 +38,7 @@
     --color-destructive-foreground: #ffffff; /* white */
 
     /* Accent Colors */
-    --color-accent: #ffb366; /* orange-300 */
+    --color-accent: #F5CA50; /* light brand gold */
     --color-accent-foreground: #1a1a1a; /* gray-900 */
 
     /* Success Colors */
@@ -120,7 +120,7 @@
   }
 
   .shadow-cta {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(240, 180, 41, 0.4);
   }
 
   .shadow-card-hover {

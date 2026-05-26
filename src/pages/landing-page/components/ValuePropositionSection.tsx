@@ -110,6 +110,19 @@ const ValuePropositionSection = ({
 
   const currentProp = relevantPropositions[currentProposition];
 
+  const gridVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } },
+  };
+  const cardItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 150, damping: 20 },
+    },
+  };
+
   return (
     <section className="py-20 bg-gradient-to-r from-muted/50 to-accent/10 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -276,14 +289,18 @@ const ValuePropositionSection = ({
         </div>
 
         {/* Supporting Features Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {relevantPropositions.slice(0, 3).map((prop, index) => (
+        <motion.div
+          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {relevantPropositions.slice(0, 3).map((prop) => (
             <motion.div
               key={prop.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={cardItemVariants}
+              whileHover={{ y: -6, boxShadow: "0 16px 32px rgba(240,180,41,0.14)" }}
               className="bg-card border border-border rounded-2xl p-6 hover:shadow-card-hover transition-card group"
             >
               <div className="flex items-center space-x-4 mb-4">
@@ -299,7 +316,7 @@ const ValuePropositionSection = ({
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

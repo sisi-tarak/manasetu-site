@@ -138,6 +138,24 @@ const HeroSection = ({
       id="for-you"
       className="relative min-h-screen bg-gradient-to-br from-background via-muted/30 to-accent/10 overflow-hidden"
     >
+      {/* Animated ambient orbs */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <motion.div
+          className="absolute top-1/4 left-[8%] w-80 h-80 bg-primary/10 rounded-full blur-3xl"
+          animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-[8%] w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+          animate={{ x: [0, -40, 0], y: [0, 50, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+        />
+        <motion.div
+          className="absolute top-2/3 left-1/2 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"
+          animate={{ x: [0, 30, 0], y: [0, -60, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 8 }}
+        />
+      </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
           {/* Left Content */}

@@ -146,7 +146,9 @@ const HowItWorksSection = () => {
                     className={`flex-1 ${index % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left"
                       }`}
                   >
-                    <div
+                    <motion.div
+                      whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(240,180,41,0.14)" }}
+                      transition={{ type: "spring", stiffness: 200, damping: 20 }}
                       className={`inline-block bg-card border border-border rounded-2xl p-8 shadow-card-hover max-w-md ${activeStep >= index ? "ring-2 ring-primary/20" : ""
                         }`}
                     >
@@ -176,7 +178,7 @@ const HowItWorksSection = () => {
                       <p className="text-text-secondary leading-relaxed">
                         {step.description}
                       </p>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Central Node */}

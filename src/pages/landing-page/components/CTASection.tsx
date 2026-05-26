@@ -283,7 +283,11 @@ const CTASection = ({ selectedAudience }: CTASectionProps) => {
             </div>
 
             {/* Right Content - Signup Form */}
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 shadow-2xl">
+            <motion.div
+              whileHover={{ boxShadow: "0 0 60px rgba(255,255,255,0.12), 0 25px 50px rgba(0,0,0,0.25)" }}
+              transition={{ duration: 0.4 }}
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 shadow-2xl"
+            >
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -407,7 +411,7 @@ const CTASection = ({ selectedAudience }: CTASectionProps) => {
                   </motion.div>
                 )}
               </motion.div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Mobile CTAs */}

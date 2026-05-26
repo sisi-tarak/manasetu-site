@@ -250,14 +250,18 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
                     onClick={() => setActiveStep(index)}
                   >
                     {/* Step Circle */}
-                    <div
-                      className={`w-16 h-16 rounded-full border-4 flex items-center mt-3 mb-5 justify-center transition-all duration-300 ${index <= activeStep
-                        ? "bg-primary border-primary text-white shadow-lg scale-110"
-                        : "bg-card border-border text-text-secondary group-hover:border-accent group-hover:scale-105"
+                    <motion.div
+                      animate={{ scale: index <= activeStep ? 1.1 : 1 }}
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      className={`w-16 h-16 rounded-full border-4 flex items-center mt-3 mb-5 justify-center ${index <= activeStep
+                        ? "bg-primary border-primary text-white shadow-lg"
+                        : "bg-card border-border text-text-secondary"
                         }`}
                     >
                       <Icon name={step.icon} size={24} />
-                    </div>
+                    </motion.div>
 
                     {/* Step Label */}
                     <div className="mt-4 text-center max-w-32">
