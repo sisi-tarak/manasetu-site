@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Icon from "../AppIcon";
 import Button from "./Button";
-import logoImg from "../assets/2.png";
 
 interface HeaderProps {
   className?: string;
@@ -315,10 +314,9 @@ const Header = ({ className = "" }: HeaderProps) => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src={logoImg}
-              alt="WE Community Logo"
-              width={100}
-              height={100}
+              src="/assets/AppIcons/4x.png"
+              alt="ManaSetu Logo"
+              className="h-10 w-auto"
             />
             {/*<button
               onClick={(e) => {
@@ -338,7 +336,7 @@ const Header = ({ className = "" }: HeaderProps) => {
                 <span className="text-white font-heading-bold text-sm">WE</span>
               </div>
               <span className="font-heading-bold text-xl text-foreground hidden sm:inline-block">
-                WE Community
+                ManaSetu
               </span>
             </button> */}
           </div>

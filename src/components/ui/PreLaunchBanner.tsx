@@ -50,7 +50,7 @@ const PreLaunchBanner = () => {
                 <span className="text-lg">🚀</span>
               </motion.div>
               <span className="text-center text-black">
-                Pre-Launch | Launching Mar 2026 | Join 500+ on Waitlist
+                Pre-Launch | Launching Aug 2026 | Join 500+ on Waitlist
               </span>
             </div>
           </div>

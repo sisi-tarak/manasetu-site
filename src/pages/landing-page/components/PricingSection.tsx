@@ -18,9 +18,10 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
         price: "₹0",
         period: "/month",
         description:
-          "Workers never pay commission - earn 100% of task payments",
+          "Keep 100% of physical task payments. Low 8–10% fee only on digital tasks above ₹5,000.",
         features: [
-          "Zero commission forever",
+          "Zero commission on physical tasks",
+          "8–10% service fee on digital tasks above ₹5,000 only",
           "Instant UPI payments",
           "College ID verification",
           "Access to all tasks",
@@ -36,9 +37,28 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
     ],
     business: [
       {
+        id: "business-free",
+        audience: "business",
+        name: "FREE",
+        price: "₹0",
+        period: "/month",
+        description: "Start posting tasks with basic features",
+        features: [
+          "₹3,000 task limit per month",
+          "No limit carry-over",
+          "6% platform fee on all tasks",
+          "AI invoice generation",
+          "Dynamic delivery fee calculation",
+          "Escrow protection",
+          "Standard support",
+        ],
+        highlighted: false,
+        ctaText: "Get Started Free",
+      },
+      {
         id: "business-starter",
         audience: "business",
-        name: "Starter",
+        name: "STARTER",
         price: "₹199",
         period: "/month",
         description: "Perfect for occasional task posting",
@@ -50,15 +70,15 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
           "AI invoice generation",
           "Dynamic delivery fee calculation",
           "Escrow protection",
-          "Basic support",
+          "Standard support",
         ],
         highlighted: false,
-        ctaText: "Start Starter Plan",
+        ctaText: "Choose STARTER",
       },
       {
-        id: "business-growth",
+        id: "business-pro",
         audience: "business",
-        name: "Growth",
+        name: "PRO",
         price: "₹399",
         period: "/month",
         description: "Ideal for regular task posting",
@@ -71,17 +91,17 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
           "AI invoice generation",
           "Dynamic delivery fee calculation",
           "Escrow protection",
-          "Priority support",
+          "24-hour support",
           "Advanced analytics",
         ],
         highlighted: true,
-        ctaText: "Choose Growth Plan",
+        ctaText: "Choose PRO",
         badge: "Recommended",
       },
       {
-        id: "business-pro",
+        id: "business-premium",
         audience: "business",
-        name: "Professional",
+        name: "PREMIUM",
         price: "₹599",
         period: "/month",
         description: "Best for high-volume task posting",
@@ -100,7 +120,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
           "Dedicated account manager",
         ],
         highlighted: false,
-        ctaText: "Go Professional",
+        ctaText: "Go PREMIUM",
       },
     ],
     investor: [
@@ -173,7 +193,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-heading-bold text-foreground mb-6"
           >
-            {selectedAudience === "worker" && "Workers Never Pay Commission"}
+            {selectedAudience === "worker" && "Transparent Worker Commission Model"}
             {selectedAudience === "business" && "Flexible Subscription Plans"}
             {selectedAudience === "investor" && "Partnership Opportunities"}
           </motion.h2>
@@ -186,7 +206,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
             className="text-lg text-text-secondary max-w-2xl mx-auto"
           >
             {selectedAudience === "worker" &&
-              "Earn 100% of task payments with zero commission forever. Access worker rewards program and referral bonuses."}
+              "Keep 100% of physical task payments — zero commission. For digital tasks, 8–10% service fee applies only above ₹5,000. Access worker rewards program and referral bonuses."}
             {selectedAudience === "business" &&
               "Choose a subscription plan that fits your needs. Unused limits carry over, and you only pay commission after exceeding your monthly limit."}
             {selectedAudience === "investor" &&
@@ -200,7 +220,9 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
               ? "grid-cols-1 md:grid-cols-2"
               : currentTiers.length === 3
                 ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                : "grid-cols-1"
+                : currentTiers.length === 4
+                  ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+                  : "grid-cols-1"
             }`}
         >
           {currentTiers.map((tier, index) => (
@@ -257,12 +279,15 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                           Monthly Task Limit
                         </div>
                         <div className="text-lg font-heading-bold text-primary">
+                          {tier.id === "business-free" && "₹3,000"}
                           {tier.id === "business-starter" && "₹3,000"}
-                          {tier.id === "business-growth" && "₹6,000"}
-                          {tier.id === "business-pro" && "₹9,000"}
+                          {tier.id === "business-pro" && "₹6,000"}
+                          {tier.id === "business-premium" && "₹9,000"}
                         </div>
                         <div className="text-xs text-success mt-1">
-                          ✓ Unused limit carries over up to 3 months
+                          {tier.id === "business-free"
+                            ? "✗ No carry-over on FREE plan"
+                            : "✓ Unused limit carries over up to 3 months"}
                         </div>
                       </div>
                     )}
@@ -371,7 +396,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
         >
           <div className="bg-card border border-border rounded-2xl p-8 max-w-4xl mx-auto">
             <h4 className="font-heading-bold text-foreground mb-4">
-              {selectedAudience === "worker" && "Why Workers Love WE Community"}
+              {selectedAudience === "worker" && "Why Workers Love ManaSetu"}
               {selectedAudience === "business" &&
                 "Key Benefits of Our Pricing Model"}
               {selectedAudience === "investor" && "Partnership Benefits"}
@@ -383,13 +408,13 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                   <Icon name="Percent" size={24} className="text-success" />
                 </div>
                 <div className="font-body-medium text-foreground mb-1">
-                  {selectedAudience === "worker" && "Zero Commission Forever"}
+                  {selectedAudience === "worker" && "Zero Commission on Physical Tasks"}
                   {selectedAudience === "business" && "Flexible Limits"}
                   {selectedAudience === "investor" && "Transparent Model"}
                 </div>
                 <div className="text-text-secondary">
                   {selectedAudience === "worker" &&
-                    "Keep 100% of your earnings - no commission, ever"}
+                    "Zero commission on physical tasks. Low 8–10% fee only on digital tasks above ₹5,000"}
                   {selectedAudience === "business" &&
                     "Unused limits carry over up to 3 months"}
                   {selectedAudience === "investor" &&
@@ -443,7 +468,8 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                   💡 How it works:
                 </div>
                 <ul className="text-sm text-text-secondary space-y-1 ml-4">
-                  <li>• Subscribe to a plan (₹199, ₹399, or ₹599/month)</li>
+                  <li>• FREE plan: ₹3,000 limit, 6% commission on all tasks, no carry-over</li>
+                  <li>• Subscribe to STARTER (₹199), PRO (₹399), or PREMIUM (₹599) to remove commission within limit</li>
                   <li>
                     • Post tasks up to your monthly limit with zero commission
                   </li>
@@ -453,7 +479,6 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
                   <li>
                     • After exceeding limit, pay only 6% platform fee per task
                   </li>
-                  <li>• Non-subscribers pay 6% platform fee on all tasks</li>
                 </ul>
               </div>
             )}

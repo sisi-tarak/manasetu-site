@@ -18,14 +18,14 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "worker-1",
       question: "Do workers pay commission?",
-      answer: `No! Workers never pay commission. You keep 100% of task payments forever. WE Community is completely free for workers - sign up, verify, and start earning with zero commission on all your earnings.`,
+      answer: `For physical tasks, workers never pay commission — keep 100% of your earnings. For digital tasks (Videography, App Dev, Web Dev, Resume/CV), a service fee of 8–10% applies only when the task value exceeds ₹5,000. Below ₹5,000, the commission is paid by the poster. ManaSetu is free to join — sign up, verify, and start earning today.`,
       audience: ["worker"],
       category: "pricing",
     },
     {
       id: "worker-2",
       question: "How does the worker rewards program work?",
-      answer: `Complete tasks to unlock rewards: 25 tasks = free WE-branded t-shirt, 50 tasks = free WE hoodie, 100 tasks = verified badge. Accept an internship opportunity and earn 1,000 bonus credits; decline and still receive a standard 500 credits bonus. Rewards improve your visibility and help you get more task offers.`,
+      answer: `Complete tasks to unlock rewards: 25 tasks = free ManaSetu-branded t-shirt, 50 tasks = free ManaSetu hoodie, 100 tasks = verified badge. Accept an internship opportunity and earn 1,000 bonus credits; decline and still receive a standard 500 credits bonus. Rewards improve your visibility and help you get more task offers.`,
       audience: ["worker"],
       category: "rewards",
     },
@@ -62,7 +62,7 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "business-1",
       question: "How do subscription plans work?",
-      answer: `Choose from three plans: Starter (₹199/month, ₹3,000 limit), Growth (₹399/month, ₹6,000 limit), or Professional (₹599/month, ₹9,000 limit). Post tasks up to your monthly limit with zero commission. Unused limits carry over up to 3 months. If your total task value exceeds your plan limit, only the extra amount is charged a 6% platform fee. Non-subscribers pay 6% platform fee on all tasks. Upgrades apply instantly with prorated charges; downgrades take effect from your next billing cycle.`,
+      answer: `Choose from four plans: FREE (₹0, 6% commission on all tasks, no carry-over), STARTER (₹199/month, ₹3,000 limit, zero commission within limit), PRO (₹399/month, ₹6,000 limit, zero commission within limit, 24-hour support), or PREMIUM (₹599/month, ₹9,000 limit, zero commission within limit, priority support). Unused limits on paid plans carry over up to 3 months. If your total task value exceeds your plan limit, only the extra amount is charged a 6% platform fee. Upgrades apply instantly with prorated charges; downgrades take effect from your next billing cycle.`,
       audience: ["business"],
       category: "pricing",
     },
@@ -98,7 +98,7 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "business-6",
       question: "How do subscription limits and carry-over work?",
-      answer: `Your monthly limit (₹3,000, ₹6,000, or ₹9,000) resets each month. Unused limit carries over to the next month, up to a maximum of 3 months. For example, if you have ₹1,000 unused in month 1, it carries to month 2. After 3 months, unused limits expire. If tasks exceed the monthly limit, a 6% platform fee is applied only on the extra amount.`,
+      answer: `For paid plans (STARTER/PRO/PREMIUM), your monthly limit (₹3,000, ₹6,000, or ₹9,000) resets each month and unused balance carries over up to 3 months. For example, if you have ₹1,000 unused in month 1, it carries to month 2. After 3 months, unused limits expire. If tasks exceed the monthly limit, a 6% platform fee is applied only on the extra amount. The FREE plan (₹0) does not support carry-over.`,
       audience: ["business"],
       category: "pricing",
     },
@@ -112,14 +112,14 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "business-8",
       question: "How do I get a verified badge?",
-      answer: `Businesses subscribed to Growth (₹399) or Professional (₹599) plans are eligible for verified badges. Verified businesses are shown first in worker listings, get higher matching priority, and build more trust with workers.`,
+      answer: `Businesses subscribed to PRO (₹399) or PREMIUM (₹599) plans are eligible for verified badges. Verified businesses are shown first in worker listings, get higher matching priority, and build more trust with workers.`,
       audience: ["business"],
       category: "verification",
     },
     {
       id: "business-9",
       question: "Who pays commission - me or the worker?",
-      answer: `Only task posters (businesses) pay platform fees. Workers never pay commission. If you're a subscriber, you pay zero commission within your monthly limit, then 6% platform fee after exceeding it. Non-subscribers pay 6% platform fee on all tasks.`,
+      answer: `For physical tasks, only task posters (businesses) pay platform fees — workers keep 100%. For digital tasks, workers pay 8–10% when the task exceeds ₹5,000; below ₹5,000 the poster pays. On the business side, FREE plan users pay 6% on all tasks. Paid subscribers (STARTER/PRO/PREMIUM) pay zero commission within their monthly limit, then 6% on the overage amount.`,
       audience: ["business"],
       category: "pricing",
     },
@@ -127,7 +127,7 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     // Investor FAQs
     {
       id: "investor-1",
-      question: "How can I invest or partner with WE Community?",
+      question: "How can I invest or partner with ManaSetu?",
       answer: `We're currently building our partnership program. Join our waitlist to get early access to future investment rounds and partnership opportunities. You'll receive regular platform updates, market insights, metrics, and priority notifications about investment and business collaboration opportunities.`,
       audience: ["investor"],
       category: "investment",
@@ -141,8 +141,8 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     },
     {
       id: "investor-3",
-      question: "What makes WE Community different?",
-      answer: `Our AI-powered invoicing, dynamic delivery fees, transparent escrow system with automatic refunds, worker rewards program, and flexible subscription model create a unique value proposition. We focus on transparency, fairness, and user-centric design with verified users and instant UPI payments.`,
+      question: "What makes ManaSetu different?",
+      answer: `ManaSetu's AI-powered invoicing, dynamic delivery fees, transparent escrow system with automatic refunds, worker rewards program, and flexible subscription model create a unique value proposition. We focus on transparency, fairness, and user-centric design with verified users and instant UPI payments.`,
       audience: ["investor"],
       category: "competitive",
     },
@@ -172,13 +172,13 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "general-4",
       question: "How do credits work for both posters and workers?",
-      answer: `Both posters and workers earn credits by using the platform. Workers: 100 credits = ₹1, can top up from ₹50 (5,000 credits), redeemable for rewards, bonuses, offers, or cash to wallet. Posters: Credits can be used for up to 50% subscription discount or for commission reduction on overage amounts. Referral bonuses: Referrer earns ₹100 when referee completes first task (workers) or posts first task (posters). Credits redemption is available from V1.`,
+      answer: `Both posters and workers earn credits by using the platform. Workers: 100 credits = ₹1, can top up from ₹50 (5,000 credits), redeemable for rewards, bonuses, offers, or cash to wallet. Note: for digital tasks above ₹5,000, the worker's 8–10% service fee is deducted before payout. Posters: Credits can be used for up to 50% subscription discount or for commission reduction on overage amounts. Referral bonuses: Referrer earns ₹100 when referee completes first task (workers) or posts first task (posters). Credits redemption is available from V1.`,
       audience: ["worker", "business"],
       category: "credits",
     },
     {
       id: "general-5",
-      question: "Is WE Community available in my city?",
+      question: "Is ManaSetu available in my city?",
       answer: `We currently operate in 25+ cities across India including Bangalore, Mumbai, Delhi, Chennai, Hyderabad, Pune, and expanding rapidly. We focus on tier-1 and tier-2 cities with strong educational institutions. Check our website for the latest city availability or express interest for your city.`,
       audience: ["worker", "business", "investor"],
       category: "availability",
@@ -186,7 +186,7 @@ const FAQSection = ({ selectedAudience }: FAQSectionProps) => {
     {
       id: "general-6",
       question: "How do I contact customer support?",
-      answer: `Our support team is available 24/7 through multiple channels: in-app chat, WhatsApp, email (support@weCommunity.com), and phone support. Subscribers get priority support. Average response time is under 2 hours. For urgent issues, use in-app chat for fastest response.`,
+      answer: `Our support team is available 24/7 through multiple channels: in-app chat, WhatsApp, and email (workearn.community@gmail.com). Subscribers get priority support. Average response time is under 2 hours. For urgent issues, use in-app chat for fastest response.`,
       audience: ["worker", "business", "investor"],
       category: "support",
     },

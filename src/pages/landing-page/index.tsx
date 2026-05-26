@@ -18,8 +18,6 @@ import PricingSection from "./components/PricingSection";
 import CTASection from "./components/CTASection";
 import FAQSection from "./components/FAQSection";
 
-import logoImg from "../../components/assets/3.png";
-
 import { AudienceType } from "./types";
 
 const LandingPage = () => {
@@ -76,22 +74,22 @@ const LandingPage = () => {
 
   // SEO content based on audience
   const getSEOContent = () => {
-    const baseTitle = "WE Community - India's Most Trusted Gig Platform";
+    const baseTitle = "ManaSetu - India's Most Trusted Gig Platform";
     const baseDescription =
-      "AI-powered gig platform with zero commission for workers, flexible subscription plans for businesses, dynamic delivery fees, and automatic refunds. 100% verified users, instant UPI payments.";
+      "AI-powered gig platform with zero commission on physical tasks for workers, flexible subscription plans for businesses, dynamic delivery fees, and automatic refunds. 100% verified users, instant UPI payments.";
 
     switch (selectedAudience) {
       case "worker":
         return {
-          title: `${baseTitle} | Zero Commission Forever - Earn 100%`,
-          description: `Workers never pay commission - keep 100% of your earnings forever. Earn rewards, badges, and bonuses. Join 10,000+ students earning ₹10,000+/month with instant UPI payments.`,
+          title: `${baseTitle} | Zero Commission on Physical Tasks - Earn More`,
+          description: `Workers keep 100% on physical tasks. Low 8–10% fee only on digital tasks above ₹5,000. Earn rewards, badges, and bonuses. Join 10,000+ students earning ₹10,000+/month with instant UPI payments.`,
           keywords:
-            "zero commission, worker rewards, student jobs, flexible income, part-time work, online earning, UPI payments, gig work, worker rewards program, verified badge, credits, referral bonuses",
+            "zero commission physical tasks, worker rewards, student jobs, flexible income, part-time work, online earning, UPI payments, gig work, worker rewards program, verified badge, credits, referral bonuses",
         };
       case "business":
         return {
           title: `${baseTitle} | Flexible Subscription Plans - AI Invoicing`,
-          description: `Choose subscription plans (₹199, ₹399, ₹599/month) with zero commission up to your limit. AI-powered invoicing, dynamic delivery fees, automatic refunds. Post tasks with complete transparency.`,
+          description: `Choose FREE, STARTER (₹199), PRO (₹399), or PREMIUM (₹599) plans. Zero commission within your limit. AI-powered invoicing, dynamic delivery fees, automatic refunds. Post tasks with complete transparency.`,
           keywords:
             "subscription plans, task posting, AI invoice, dynamic delivery fees, escrow protection, verified workers, business solutions, flexible pricing, automatic refunds",
         };
@@ -118,12 +116,16 @@ const LandingPage = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <img src={logoImg} alt="WE Community Logo" width={150} height={150} />
+          <img
+            src="/assets/AppIcons/1024.png"
+            alt="ManaSetu Logo"
+            className="h-24 w-auto mx-auto"
+          />
           {/* <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
             <span className="text-white font-heading-bold text-xl">WE</span>
           </div>
           <div className="text-lg font-heading-bold text-foreground mb-2">
-            Loading WE Community
+            Loading ManaSetu
           </div>
           <div className="text-sm text-text-secondary">
             Preparing your personalized experience...
@@ -164,7 +166,7 @@ const LandingPage = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "WE Community",
+            name: "ManaSetu",
             url: "https://we-site-ten.vercel.app",
             description: seoContent.description,
             potentialAction: {

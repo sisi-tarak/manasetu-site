@@ -1,15 +1,35 @@
 {
-  "short_name": "we-Community-landing-page",
-  "name": "we-Community-landing-page",
+  "short_name": "ManaSetu",
+  "name": "ManaSetu",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/assets/AppIcons/48x48-black.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/AppIcons/72x72-black.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/AppIcons/96x96-black.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/AppIcons/144x144-black.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/AppIcons/192x192-black.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#ff8c42",
   "background_color": "#ffffff"
 }

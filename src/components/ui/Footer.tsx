@@ -22,7 +22,7 @@ const Footer = () => {
                   ⚠️ Pre-Launch Notice
                 </h4>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  Platform launching March 2026. Statistics shown are
+                  Platform launching August 2026. Statistics shown are
                   projections, not current data. All metrics including tasks
                   completed, payments to workers, ratings, verified users, and
                   other platform statistics are projected goals for Year 1 and

@@ -31,9 +31,9 @@ const ValuePropositionSection = ({
     },
     {
       id: "zero-commission",
-      title: "Zero Commission Forever",
+      title: "Zero Commission on Physical Tasks",
       description:
-        "Workers never pay commission - keep 100% of your earnings forever. Earn rewards, badges, and bonuses as you complete tasks.",
+        "Workers keep 100% of earnings on physical tasks — no commission ever. For digital tasks, a low 8–10% service fee applies only above ₹5,000 per task.",
       icon: "Percent",
       audience: ["worker"],
     },
@@ -121,7 +121,7 @@ const ValuePropositionSection = ({
             className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-body-medium mb-6"
           >
             <Icon name="Sparkles" size={16} />
-            <span>Why Choose WE Community</span>
+            <span>Why Choose ManaSetu</span>
           </motion.div>
 
           <motion.h2

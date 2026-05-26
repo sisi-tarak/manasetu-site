@@ -24,12 +24,12 @@ const HeroSection = ({
       icon: "Users",
       description: "Earn flexible income",
       color: "text-success",
-      heroTitle: "Workers Never Pay Commission",
+      heroTitle: "Zero Commission on Physical Tasks",
       heroSubtitle:
-        "Join 10,000+ students earning ₹10,000+/month. Zero commission forever. Earn rewards, badges, and bonuses as you complete tasks.",
+        "Join 10,000+ students earning ₹10,000+/month. Keep 100% on physical tasks; 8–10% service fee only on digital tasks above ₹5,000. Earn rewards, badges, and bonuses.",
       ctaText: "Start Earning Now",
       benefits: [
-        "Zero commission forever",
+        "Zero commission on physical tasks",
         "Instant UPI payments",
         "Worker rewards program",
       ],
@@ -60,7 +60,7 @@ const HeroSection = ({
       color: "text-warning",
       heroTitle: "Join Our Partnership Waitlist",
       heroSubtitle:
-        "Interested in partnering with WE Community? Join our waitlist for future investment opportunities and business collaborations.",
+        "Interested in partnering with ManaSetu? Join our waitlist for future investment opportunities and business collaborations.",
       ctaText: "Join Waitlist",
       benefits: [
         "Early access to opportunities",
@@ -75,13 +75,13 @@ const HeroSection = ({
       audience: "worker",
       title: "₹10,000+/month",
       subtitle: "Flexible Income",
-      highlight: "Zero Commission Forever",
+      highlight: "Zero Commission on Physical Tasks",
       icon: "Wallet",
       gradient: "from-success to-success/70",
       features: [
         "Instant UPI payments",
         "Worker rewards program",
-        "Earn credits & bonuses",
+        "8–10% only on digital >₹5K",
       ],
     },
     {

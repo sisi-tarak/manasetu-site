@@ -26,7 +26,7 @@ interface NavigationEvent {
 
 const ConversionTrackingNav = ({
   className = "",
-  trackingId = "we-Community-landing",
+  trackingId = "manasetu-landing",
   enableAnalytics = true,
   debugMode = false,
 }: ConversionTrackingNavProps) => {
