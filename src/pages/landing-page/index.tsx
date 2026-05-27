@@ -184,7 +184,7 @@ const LandingPage = () => {
       <PreLaunchBanner />
       <Header />
       <ScrollProgressIndicator />
-      <AudienceSelectorPersistence onAudienceChange={handleAudienceChange} />
+      {/* <AudienceSelectorPersistence onAudienceChange={handleAudienceChange} /> */}
       <ConversionTrackingNav />
 
       {/* Main Content */}
