@@ -1,402 +1,206 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Icon from "../../../components/AppIcon";
-import Image from "../../../components/AppImage";
-import Button from "../../../components/ui/Button";
-import { AudienceType, HeroCardData } from "../types";
+import { AudienceType } from "../types";
+import phoneMockup from "../../../components/assets/1.png";
 
 interface HeroSectionProps {
   selectedAudience: AudienceType["id"];
   onAudienceChange: (audience: AudienceType["id"]) => void;
 }
 
-const HeroSection = ({
-  selectedAudience,
-  onAudienceChange,
-}: HeroSectionProps) => {
-  const [currentHeadline, setCurrentHeadline] = useState(0);
+const audienceOptions: { id: AudienceType["id"]; label: string }[] = [
+  { id: "worker", label: "Worker" },
+  { id: "business", label: "Business" },
+  { id: "investor", label: "Investor" },
+];
 
-  const audienceTypes: AudienceType[] = [
-    {
-      id: "worker",
-      label: "Student/Worker",
-      shortLabel: "W",
-      icon: "Users",
-      description: "Earn flexible income",
-      color: "text-success",
-      heroTitle: "Zero Commission on Physical Tasks",
-      heroSubtitle:
-        "Join 10,000+ students earning ₹10,000+/month. Keep 100% on physical tasks; 8–10% service fee only on digital tasks above ₹5,000. Earn rewards, badges, and bonuses.",
-      ctaText: "Start Earning Now",
-      benefits: [
-        "Zero commission on physical tasks",
-        "Instant UPI payments",
-        "Worker rewards program",
-      ],
-    },
-    {
-      id: "business",
-      label: "Business",
-      shortLabel: "B",
-      icon: "Building2",
-      description: "Find verified talent",
-      color: "text-secondary",
-      heroTitle: "Smart Subscription Plans for Task Posting",
-      heroSubtitle:
-        "Workers earn 100% with zero commission. Businesses use smart subscription plans (₹199/₹399/₹599) with AI-powered cost estimation and escrow-protected tasks.",
-      ctaText: "View Pricing Plans",
-      benefits: [
-        "Smart subscription plans",
-        "AI invoice & escrow protection",
-        "Dynamic delivery fees",
-      ],
-    },
-    {
-      id: "investor",
-      label: "Investor",
-      shortLabel: "I",
-      icon: "TrendingUp",
-      description: "High-growth investment",
-      color: "text-warning",
-      heroTitle: "Join Our Partnership Waitlist",
-      heroSubtitle:
-        "Interested in partnering with ManaSetu? Join our waitlist for future investment opportunities and business collaborations.",
-      ctaText: "Join Waitlist",
-      benefits: [
-        "Early access to opportunities",
-        "Market insights",
-        "Partnership options",
-      ],
-    },
-  ];
+const featureCards = [
+  {
+    icon: "Briefcase",
+    title: "Find Jobs",
+    description: "Browse curated opportunities tailored to your skills.",
+    amber: true,
+    button: "Explore",
+  },
+  {
+    icon: "Clock",
+    title: "Track Hours",
+    description: "Log your work and monitor your progress seamlessly.",
+    amber: false,
+  },
+  {
+    icon: "Wallet",
+    title: "Get Paid Fast",
+    description: "Secure and timely payments directly to your account.",
+    amber: false,
+  },
+  {
+    icon: "TrendingUp",
+    title: "Skill Development",
+    description: "Access courses and resources to enhance your profile.",
+    amber: false,
+  },
+];
 
-  const heroCards: HeroCardData[] = [
-    {
-      audience: "worker",
-      title: "₹10,000+/month",
-      subtitle: "Flexible Income",
-      highlight: "Zero Commission on Physical Tasks",
-      icon: "Wallet",
-      gradient: "from-success to-success/70",
-      features: [
-        "Instant UPI payments",
-        "Worker rewards program",
-        "8–10% only on digital >₹5K",
-      ],
-    },
-    {
-      audience: "business",
-      title: "Verified Talent",
-      subtitle: "Zero Hassle",
-      highlight: "Smart Subscription Plans",
-      icon: "Shield",
-      gradient: "from-secondary to-secondary/70",
-      features: [
-        "AI invoice & escrow protection",
-        "Dynamic delivery fees",
-        "3-tier location-based buffers",
-      ],
-    },
-    {
-      audience: "investor",
-      title: "15-25x Returns",
-      subtitle: "Growth Potential",
-      highlight: "Partnership Waitlist",
-      icon: "TrendingUp",
-      gradient: "from-warning to-warning/70",
-      features: [
-        "Early access",
-        "Market insights",
-        "Partnership opportunities",
-      ],
-    },
-  ];
-
-  const currentAudience =
-    audienceTypes.find((a) => a.id === selectedAudience) || audienceTypes[0];
-
-  const headlines = [
-    currentAudience.heroTitle,
-    `Join India's Most Trusted Gig Platform`,
-    currentAudience.id === "worker"
-      ? "Earn Rewards, Badges & Bonuses"
-      : currentAudience.id === "business"
-        ? "AI-Powered Invoicing & Dynamic Fees"
-        : "Join Our Growing Platform",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentHeadline((prev) => (prev + 1) % headlines.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [headlines.length]);
+const HeroSection = ({ selectedAudience, onAudienceChange }: HeroSectionProps) => {
+  const getActiveClass = (id: AudienceType["id"]) =>
+    id === "business" ? "bg-secondary text-white" : "bg-warning text-white";
 
   return (
     <section
       id="for-you"
-      className="relative min-h-screen bg-gradient-to-br from-background via-muted/30 to-accent/10 overflow-hidden"
+      className="relative bg-background overflow-hidden pt-24 pb-24"
     >
-      {/* Animated ambient orbs */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <motion.div
-          className="absolute top-1/4 left-[8%] w-80 h-80 bg-primary/10 rounded-full blur-3xl"
-          animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-[8%] w-96 h-96 bg-accent/10 rounded-full blur-3xl"
-          animate={{ x: [0, -40, 0], y: [0, 50, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-        />
-        <motion.div
-          className="absolute top-2/3 left-1/2 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"
-          animate={{ x: [0, 30, 0], y: [0, -60, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 8 }}
-        />
-      </div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
-          {/* Left Content */}
-          <div className="flex-1 lg:pr-12 text-center lg:text-left">
-            {/* Dynamic Headlines */}
-            <div className="2xl:mb-10 mb-10 sm:mb-6 md:mb-10 lg:mb-16 h-20 flex items-center justify-center lg:justify-start">
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={currentHeadline}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-heading-extra-bold text-foreground leading-tight"
-                >
-                  {headlines[currentHeadline]}
-                </motion.h1>
-              </AnimatePresence>
-            </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto lg:mx-0"
-            >
-              {currentAudience.heroSubtitle}
-            </motion.p>
-
-            {/* Benefits List */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8"
-            >
-              {currentAudience.benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-2 bg-card border border-border rounded-full px-4 py-2 shadow-sm"
-                >
-                  <Icon name="Check" size={16} className="text-success" />
-                  <span className="text-sm font-body-medium text-foreground">
-                    {benefit}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Primary CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Button
-                variant="default"
-                size="lg"
-                iconName="ArrowRight"
-                iconPosition="right"
-                className="animate-pulse-cta shadow-cta text-lg px-8 py-4"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.getElementById("get-started");
-                  if (element) {
-                    const headerHeight = 64;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition =
-                      elementPosition + window.pageYOffset - headerHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: "smooth",
-                    });
-                  }
-                }}
+        {/* Audience Pill Toggle */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex justify-center mb-10"
+        >
+          <div className="inline-flex border border-border rounded-full p-1 bg-card shadow-sm">
+            {audienceOptions.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => onAudienceChange(id)}
+                className={`px-5 py-2 rounded-full text-sm font-body-medium transition-smooth ${
+                  selectedAudience === id
+                    ? getActiveClass(id)
+                    : "text-text-secondary hover:bg-accent"
+                }`}
               >
-                {currentAudience.ctaText}
-              </Button>
+                {label}
+              </button>
+            ))}
+          </div>
+        </motion.div>
 
-              {selectedAudience === "worker" && (
-                <div className="flex items-center justify-center lg:justify-start space-x-2 text-sm text-text-secondary">
-                  <Image
-                    src="https://img.rocket.new/generatedImages/rocket_gen_img_1272f1b41-1762624831669.png"
-                    alt="UPI payment logo for instant money transfers"
-                    className="w-8 h-6"
-                  />
+        {/* Heading + Subtitle */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="text-center mb-14"
+        >
+          <h1 className="text-5xl md:text-6xl font-heading-extra-bold text-foreground mb-4 leading-tight">
+            Welcome To ManaSetu
+          </h1>
+          <p className="text-lg text-text-secondary">
+            The unified platform for empowerment and growth.
+          </p>
+        </motion.div>
 
-                  <span>Instant UPI Payments</span>
-                </div>
-              )}
-            </motion.div>
-
-            {/* Trust Indicators - Projected Goals */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="mt-8"
-            >
-              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 text-sm text-text-secondary mb-2">
-                <div className="flex items-center space-x-2">
-                  <Icon name="Users" size={16} className="text-success" />
-                  <span>Target: 10,000+ Tasks</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Icon
-                    name="Star"
-                    size={16}
-                    className="text-text-secondary"
-                  />
-                  <span>Target: 4.8/5 Rating</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Icon name="Shield" size={16} className="text-secondary" />
-                  <span>Target: 100% Verified</span>
-                </div>
+        {/* Visual Area */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="flex flex-col lg:flex-row items-center justify-center gap-10 mb-16"
+        >
+          {/* Left — ManaSetu Id card */}
+          <div className="flex-shrink-0">
+            <div className="bg-card border border-border rounded-2xl shadow-sm p-5 text-center w-44">
+              <div className="flex items-center justify-center mb-3">
+                <Icon name="Zap" size={24} className="text-warning" />
               </div>
-              <p className="text-xs text-text-secondary italic">
-                * Projected goals for Year 1
+              <p className="text-sm font-body-medium text-text-secondary mb-3">ManaSetu Id</p>
+              <button className="w-full bg-warning text-white rounded-full px-4 py-1.5 text-sm font-body-medium hover:bg-warning/90 transition-smooth">
+                Reserve Id
+              </button>
+            </div>
+          </div>
+
+          {/* Center — Phone mockup */}
+          <div className="relative flex-shrink-0">
+            <div className="w-56 border-4 border-foreground rounded-[2.5rem] overflow-hidden shadow-xl bg-background">
+              <img
+                src={phoneMockup}
+                alt="ManaSetu app interface"
+                className="w-full h-auto block"
+              />
+            </div>
+            {/* Floating badge — top right */}
+            <div className="absolute -top-3 -right-4 lg:-right-20 bg-card border border-border rounded-xl shadow-sm p-3 flex items-center gap-2 w-44">
+              <div className="w-7 h-7 rounded-full bg-accent flex-shrink-0 flex items-center justify-center">
+                <Icon name="User" size={14} className="text-foreground" />
+              </div>
+              <p className="text-xs text-text-secondary leading-tight">
+                Access Opportunities. Connect, grow, and thrive.
               </p>
-            </motion.div>
-          </div>
-
-          {/* Right Content - Audience Selector Cards */}
-          <div className="flex-1 mt-12 lg:mt-0">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-6 max-w-md mx-auto">
-              {heroCards.map((card, index) => (
-                <motion.div
-                  key={card.audience}
-                  initial={{ opacity: 0, x: 50, rotateY: -15 }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    rotateY: 0,
-                    scale: selectedAudience === card.audience ? 1.05 : 1,
-                  }}
-                  transition={{ delay: index * 0.2 }}
-                  whileHover={{
-                    scale: 1.08,
-                    rotateY: 5,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                  }}
-                  className={`relative cursor-pointer transition-card ${selectedAudience === card.audience
-                    ? "ring-2 ring-primary shadow-card-hover"
-                    : "hover:shadow-card-hover"
-                    }`}
-                  onClick={() => onAudienceChange(card.audience)}
-                >
-                  <div
-                    className={`bg-gradient-to-br ${card.gradient} p-6 rounded-2xl text-white relative overflow-hidden`}
-                  >
-                    {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-4 right-4 w-20 h-20 border border-white/20 rounded-full" />
-                      <div className="absolute bottom-4 left-4 w-16 h-16 border border-white/20 rounded-full" />
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-4">
-                        <Icon
-                          name={card.icon}
-                          size={32}
-                          className="text-white"
-                        />
-                        {selectedAudience === card.audience && (
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="w-6 h-6 bg-white rounded-full flex items-center justify-center"
-                          >
-                            <Icon
-                              name="Check"
-                              size={16}
-                              className="text-success"
-                            />
-                          </motion.div>
-                        )}
-                      </div>
-
-                      <h3 className="text-2xl font-heading-bold mb-2">
-                        {card.title}
-                      </h3>
-                      <p className="text-white/90 mb-4">{card.subtitle}</p>
-
-                      <div className="bg-white/20 rounded-lg p-3 mb-4">
-                        <p className="text-sm font-body-medium">
-                          {card.highlight}
-                        </p>
-                      </div>
-
-                      <ul className="space-y-2">
-                        {card.features.map((feature, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-center space-x-2 text-sm"
-                          >
-                            <Icon
-                              name="Check"
-                              size={14}
-                              className="text-white"
-                            />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Hover Effect Overlay */}
-                    <div className="absolute inset-0 bg-white/5 opacity-0 hover:opacity-100 transition-opacity rounded-2xl" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Mobile Audience Selector */}
-            <div className="md:hidden mt-8">
-              <div className="flex justify-center space-x-2">
-                {audienceTypes.map((audience) => (
-                  <button
-                    key={audience.id}
-                    onClick={() => onAudienceChange(audience.id)}
-                    className={`w-3 h-3 rounded-full transition-smooth ${selectedAudience === audience.id
-                      ? "bg-primary"
-                      : "bg-border hover:bg-accent"
-                      }`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
-        </div>
+
+          {/* Right — App download buttons */}
+          <div className="flex flex-col gap-3 items-center flex-shrink-0">
+            <a href="#" aria-label="Download on App Store" className="block">
+              <img
+                src="/assets/AppIcons/appstore-black.png"
+                alt="App Store"
+                className="h-11 w-auto rounded-lg"
+              />
+            </a>
+            <a href="#" aria-label="Get it on Google Play" className="block">
+              <img
+                src="/assets/AppIcons/playstore-black.png"
+                alt="Google Play"
+                className="h-11 w-auto rounded-lg"
+              />
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Feature Cards 2×2 Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="grid grid-cols-2 gap-4 max-w-2xl mx-auto"
+        >
+          {featureCards.map((card) => (
+            <div
+              key={card.title}
+              className={`rounded-2xl p-5 ${
+                card.amber
+                  ? "bg-warning"
+                  : "bg-card border border-border"
+              }`}
+            >
+              <Icon
+                name={card.icon as any}
+                size={24}
+                className={card.amber ? "text-white mb-3" : "text-warning mb-3"}
+              />
+              <h3
+                className={`font-heading-bold text-base mb-2 ${
+                  card.amber ? "text-white" : "text-foreground"
+                }`}
+              >
+                {card.title}
+              </h3>
+              <p
+                className={`text-sm mb-3 ${
+                  card.amber ? "text-white/80" : "text-text-secondary"
+                }`}
+              >
+                {card.description}
+              </p>
+              {card.button && (
+                <button className="bg-white/20 text-white rounded-full px-4 py-1 text-sm font-body-medium hover:bg-white/30 transition-smooth">
+                  {card.button}
+                </button>
+              )}
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
+        transition={{ delay: 1.0 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center space-y-2">
@@ -410,7 +214,7 @@ const HeroSection = ({
           </motion.div>
         </div>
       </motion.div>
-    </section >
+    </section>
   );
 };
 
