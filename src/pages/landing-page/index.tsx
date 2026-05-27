@@ -16,6 +16,7 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import MetricsSection from "./components/MetricsSection";
 import PricingSection from "./components/PricingSection";
 import CTASection from "./components/CTASection";
+import WaitlistSection from "./components/WaitlistSection";
 import FAQSection from "./components/FAQSection";
 
 import { AudienceType } from "./types";
@@ -212,8 +213,11 @@ const LandingPage = () => {
         {/* Transparent Pricing - Interactive comparison */}
         <PricingSection selectedAudience={selectedAudience} />
 
+        {/* Orbital Waitlist Visual - Community social proof */}
+        <WaitlistSection />
+
         {/* Final Multi-CTA - Audience-specific urgency */}
-        <CTASection selectedAudience={selectedAudience} />
+        {/* <CTASection selectedAudience={selectedAudience} /> */}
 
         {/* FAQ Section - AI-powered search with Hindi toggle */}
         <FAQSection selectedAudience={selectedAudience} />
