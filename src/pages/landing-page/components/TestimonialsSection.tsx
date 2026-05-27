@@ -376,7 +376,7 @@ const TestimonialsSection = ({
               transition={{ delay: 0.3 }}
               className="text-center"
             >
-              <div className="text-3xl font-heading-bold text-warning mb-2">
+              <div className="text-3xl font-heading-bold text-foreground mb-2">
                 100%
               </div>
               <div className="text-sm text-text-secondary">

@@ -229,7 +229,7 @@ const JourneySection = ({ selectedAudience }: JourneySectionProps) => {
               {/* Timeline Line */}
               <div className="absolute top-1/2 left-0 right-0 h-1 bg-border transform -translate-y-1/2" />
               <motion.div
-                className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-primary to-accent transform -translate-y-1/2"
+                className="absolute top-1/2 left-0 h-1 bg-primary transform -translate-y-1/2"
                 initial={{ width: "0%" }}
                 animate={{
                   width: `${((activeStep + 1) / currentJourney.length) * 100}%`,

@@ -271,7 +271,7 @@ const ValuePropositionSection = ({
                   transition={{ delay: 0.3 }}
                   className="text-center"
                 >
-                  <div className="text-2xl md:text-3xl font-heading-bold text-warning mb-2">
+                  <div className="text-2xl md:text-3xl font-heading-bold text-foreground mb-2">
                     100%
                   </div>
                   <div className="text-sm text-text-secondary">
@@ -300,7 +300,7 @@ const ValuePropositionSection = ({
             <motion.div
               key={prop.id}
               variants={cardItemVariants}
-              whileHover={{ y: -6, boxShadow: "0 16px 32px rgba(240,180,41,0.14)" }}
+              whileHover={{ y: -6, boxShadow: "0 16px 32px rgba(3,3,3,0.10)" }}
               className="bg-card border border-border rounded-2xl p-6 hover:shadow-card-hover transition-card group"
             >
               <div className="flex items-center space-x-4 mb-4">

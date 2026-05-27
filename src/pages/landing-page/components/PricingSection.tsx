@@ -180,7 +180,7 @@ const PricingSection = ({ selectedAudience }: PricingSectionProps) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-warning/10 text-warning px-4 py-2 rounded-full text-sm font-body-medium mb-6"
+            className="inline-flex items-center space-x-2 bg-muted text-foreground px-4 py-2 rounded-full text-sm font-body-medium mb-6"
           >
             <Icon name="DollarSign" size={16} />
             <span>Transparent Pricing</span>

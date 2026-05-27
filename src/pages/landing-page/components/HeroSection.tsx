@@ -266,7 +266,7 @@ const HeroSection = ({
                   <Icon
                     name="Star"
                     size={16}
-                    className="text-warning fill-current"
+                    className="text-text-secondary"
                   />
                   <span>Target: 4.8/5 Rating</span>
                 </div>

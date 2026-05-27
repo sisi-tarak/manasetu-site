@@ -6,59 +6,59 @@
 
 @layer base {
   :root {
-    /* Core Colors */
-    --color-background: #ffffff; /* white */
-    --color-foreground: #1a1a1a; /* gray-900 */
-    --color-border: #e5e7eb; /* gray-200 */
-    --color-input: #ffffff; /* white */
-    --color-ring: #F0B429; /* brand amber-gold */
+    /* Core Colors — 60-30-10 palette */
+    --color-background: #FBFBFB; /* 60% — near white */
+    --color-foreground: #030303; /* near black */
+    --color-border: #EDEEF0; /* 30% — light gray */
+    --color-input: #FFFFFF; /* pure white */
+    --color-ring: #2D2D2D; /* dark charcoal ring */
 
     /* Card Colors */
-    --color-card: #ffffff; /* white */
-    --color-card-foreground: #1a1a1a; /* gray-900 */
+    --color-card: #FFFFFF; /* pure white surface */
+    --color-card-foreground: #030303; /* near black */
 
     /* Popover Colors */
-    --color-popover: #ffffff; /* white */
-    --color-popover-foreground: #1a1a1a; /* gray-900 */
+    --color-popover: #FFFFFF; /* pure white */
+    --color-popover-foreground: #030303; /* near black */
 
     /* Muted Colors */
-    --color-muted: #f8f9fa; /* gray-50 */
+    --color-muted: #EDEEF0; /* 30% — light gray */
     --color-muted-foreground: #6b7280; /* gray-500 */
 
-    /* Primary Colors */
-    --color-primary: #F0B429; /* brand amber-gold */
-    --color-primary-foreground: #ffffff; /* white */
+    /* Primary Colors — 10% near-black accent */
+    --color-primary: #030303; /* 10% — near black */
+    --color-primary-foreground: #FFFFFF; /* white */
 
     /* Secondary Colors */
-    --color-secondary: #1b5e8f; /* blue-700 */
-    --color-secondary-foreground: #ffffff; /* white */
+    --color-secondary: #2D2D2D; /* dark charcoal */
+    --color-secondary-foreground: #FFFFFF; /* white */
 
     /* Destructive Colors */
     --color-destructive: #ef4444; /* red-500 */
-    --color-destructive-foreground: #ffffff; /* white */
+    --color-destructive-foreground: #FFFFFF; /* white */
 
-    /* Accent Colors */
-    --color-accent: #F5CA50; /* light brand gold */
-    --color-accent-foreground: #1a1a1a; /* gray-900 */
+    /* Accent Colors — 30% light gray surface */
+    --color-accent: #EDEEF0; /* 30% — light gray */
+    --color-accent-foreground: #030303; /* near black */
 
     /* Success Colors */
-    --color-success: #10b981; /* emerald-500 */
-    --color-success-foreground: #ffffff; /* white */
+    --color-success: #10b981; /* emerald-500 — keep */
+    --color-success-foreground: #FFFFFF; /* white */
 
-    /* Warning Colors */
-    --color-warning: #f59e0b; /* amber-500 */
-    --color-warning-foreground: #ffffff; /* white */
+    /* Warning Colors — semantic, used sparingly (≤5 instances) */
+    --color-warning: #f59e0b; /* amber-500 — keep semantic */
+    --color-warning-foreground: #FFFFFF; /* white */
 
     /* Error Colors */
     --color-error: #ef4444; /* red-500 */
-    --color-error-foreground: #ffffff; /* white */
+    --color-error-foreground: #FFFFFF; /* white */
 
     /* Surface Colors */
-    --color-surface: #f8f9fa; /* gray-50 */
-    --color-surface-foreground: #1a1a1a; /* gray-900 */
+    --color-surface: #EDEEF0; /* 30% — light gray */
+    --color-surface-foreground: #030303; /* near black */
 
     /* Text Colors */
-    --color-text-primary: #1a1a1a; /* gray-900 */
+    --color-text-primary: #030303; /* near black */
     --color-text-secondary: #6b7280; /* gray-500 */
   }
 }
@@ -120,7 +120,7 @@
   }
 
   .shadow-cta {
-    box-shadow: 0 4px 20px rgba(240, 180, 41, 0.4);
+    box-shadow: 0 4px 20px rgba(3, 3, 3, 0.25);
   }
 
   .shadow-card-hover {

@@ -46,7 +46,7 @@ const HowItWorksSection = () => {
       description:
         "Worker completes the task, uploads receipt, and reports completion. System compares actual bill vs estimated invoice. Unused buffer and delivery fee adjustments calculated automatically using the formula: Final Delivery Fee = Base Fee × (Actual Cost / Estimated Cost).",
       icon: "CheckCircle",
-      color: "text-warning",
+      color: "text-text-secondary",
     },
     {
       id: "refund-payment",
@@ -121,7 +121,7 @@ const HowItWorksSection = () => {
             {/* Central Timeline Line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-border transform -translate-x-1/2" />
             <motion.div
-              className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-primary via-accent to-secondary transform -translate-x-1/2"
+              className="absolute left-1/2 top-0 w-1 bg-primary transform -translate-x-1/2"
               initial={{ height: "0%" }}
               animate={{
                 height: `${((activeStep + 1) / timelineSteps.length) * 100}%`,
@@ -147,7 +147,7 @@ const HowItWorksSection = () => {
                       }`}
                   >
                     <motion.div
-                      whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(240,180,41,0.14)" }}
+                      whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(3,3,3,0.10)" }}
                       transition={{ type: "spring", stiffness: 200, damping: 20 }}
                       className={`inline-block bg-card border border-border rounded-2xl p-8 shadow-card-hover max-w-md ${activeStep >= index ? "ring-2 ring-primary/20" : ""
                         }`}

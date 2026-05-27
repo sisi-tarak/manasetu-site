@@ -38,7 +38,7 @@ const PreLaunchBanner = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="sticky top-0 z-[60] w-full bg-gradient-to-r from-primary via-primary/95 to-accent text-white shadow-lg"
+          className="sticky top-0 z-[60] w-full bg-gradient-to-r from-[#D4900A] via-[#F0B429] to-[#F5C84A] text-white shadow-lg"
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center py-3 text-sm font-body-medium">

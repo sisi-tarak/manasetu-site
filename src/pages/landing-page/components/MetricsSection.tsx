@@ -192,7 +192,7 @@ const MetricsSection = () => {
               variants={metricCardVariants}
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 20px 40px rgba(240,180,41,0.18)",
+                boxShadow: "0 20px 40px rgba(3,3,3,0.12)",
               }}
               className="bg-card border border-border rounded-3xl p-8 text-center hover:shadow-card-hover transition-card group relative overflow-hidden"
             >
@@ -297,7 +297,7 @@ const MetricsSection = () => {
           transition={{ delay: 0.8 }}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center space-x-2 bg-warning/10 text-warning px-4 py-2 rounded-full text-sm font-body-medium">
+          <div className="inline-flex items-center space-x-2 bg-muted text-text-secondary px-4 py-2 rounded-full text-sm font-body-medium">
             <Icon name="Info" size={16} />
             <span>These are projected goals, not current data</span>
           </div>
@@ -361,8 +361,8 @@ const MetricsSection = () => {
             transition={{ delay: 0.3 }}
             className="text-center"
           >
-            <div className="w-12 h-12 bg-warning/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <Icon name="Award" size={24} className="text-warning" />
+            <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mx-auto mb-3">
+              <Icon name="Award" size={24} className="text-text-secondary" />
             </div>
             <div className="text-sm font-body-medium text-foreground">
               Quality Assured
